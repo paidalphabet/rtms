@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+	<class name="com.wisegoals.entity.portfolio.RiskCategory" table="RISK_CATEGORY" lazy="false">
+		<id name="categoryID" column="CATEGORY_ID" type="int">
+			<generator class="native"/>
+		</id>
+		<property name="riskCategory" column="RISK_CATEGORY" type="string" length="100" />
+	</class>
+
+	<class name="com.wisegoals.entity.portfolio.AssetClass" table="ASSET_CLASS" lazy="false">
+		<id name="assetClassID" column="ASSET_CLASS_ID" type="int">
+			<generator class="native"/>
+		</id>
+		<property name="assetClass" column="ASSET_CLASS" type="string" length="200" />
+	</class>
+
+	<class name="com.wisegoals.entity.portfolio.SubAssetClass" table="SUB_ASSET_CLASS" lazy="false">
+		<id name="subAssetClassID" column="SUB_ASSET_CLASS_ID" type="int">
+			<generator class="native"/>
+		</id>
+		<property name="assetClass" column="ASSET_CLASS" type="string" length="200" />
+		<many-to-one name="subAssetClass" column="SUB_ASSET_CLASS" class="com.wisegoals.entity.portfolio.AssetClass" lazy="false"/>
+	</class>
+
+	<class name="com.wisegoals.entity.portfolio.ReturnsOnInvestment" table = "ROI_MASTER" lazy="false">
+		<id name="roiID" column="ROI_ID" type="int">
+			<generator class="native"/>
+		</id>
+		<many-to-one name="riskCategory" column="RISK_CATEGORY" class="com.wisegoals.entity.portfolio.RiskCategory" lazy="false"/>
+		<property name="roi" type="float" column ="ROI" length="5"/>
+		<property name ="goalTenureStart" column = "GOAL_TENURE_START" type="int"/>
+		<property name ="goalTenureEnd" column = "GOAL_TENURE_END" type="int"/>
+	</class>
+
+	<class name="com.wisegoals.entity.portfolio.AssetAllocation" table = "ASSET_ALLOCATION" lazy="false">
+		<id name="assetAllocationID" column="ASSET_ALLOCATION_ID" type="int">
+			<generator class="native"/>
+		</id>
+		<many-to-one name="riskCategory" column="RISK_CATEGORY" class="com.wisegoals.entity.portfolio.RiskCategory" lazy="false"/>
+		<many-to-one name="subAssetClass" column="SUB_ASSET_CLASS" class="com.wisegoals.entity.portfolio.SubAssetClass" lazy="false"/>
+		<many-to-one name="assetClass" column="ASSET_CLASS" class="com.wisegoals.entity.portfolio.AssetClass" lazy="false"/>
+		<property name="allocation" column="ALLOCATION" type="float"/>
+	</class>
+	
+	<class name="com.wisegoals.entity.portfolio.Instrument" table="INSTRUMENT" lazy="false">
+		<id name="instrumentID" column="INSTRUMENT_ID" type="string">
+			<generator class="guid"/>
+		</id>
+		<property name ="instrumentName" type="string" column="INSTRUMENT_NAME" length="256"/>
+		<property name ="instrumentURL" type="string" column="INSTRUMENT_URL" length="2048"/>
+		<many-to-one name="subAssetClass" column="SUB_ASSET_CLASS" class="com.wisegoals.entity.portfolio.SubAssetClass" lazy="false"/>
+		<many-to-one name="assetClass" column="ASSET_CLASS" class="com.wisegoals.entity.portfolio.AssetClass" lazy="false"/>
+	</class>
+
+	<class name="com.wisegoals.entity.portfolio.PortfolioMaster" table="PORTFOLIO_MASTER" lazy="false">
+		<id name="id" column="ID" type="string">
+			<generator class="guid"/>
+		</id>
+		<many-to-one name="riskCategory" column="RISK_CATEGORY" class="com.wisegoals.entity.portfolio.RiskCategory" lazy="false"/>
+		<many-to-one name="instrument" column="INSTRUMENT" class="com.wisegoals.entity.portfolio.Instrument" lazy="false"/>
+		<many-to-one name="subAssetClass" column="SUB_ASSET_CLASS" class="com.wisegoals.entity.portfolio.SubAssetClass" lazy="false"/>
+		<many-to-one name="assetClass" column="ASSET_CLASS" class="com.wisegoals.entity.portfolio.AssetClass" lazy="false"/>
+		<property name="allocation" column="ALLOCATION" type="string"/>
+		<many-to-one name="calculatorType" column="CALCULATOR_TYPE" class="com.wisegoals.entity.calculator.CalculatorType" lazy="false"/>
+	</class>
+</hibernate-mapping>

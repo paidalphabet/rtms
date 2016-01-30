@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+
+  	<class name="com.wisegoals.entity.calculator.CalculatorType" table="CALCULATOR_TYPE" lazy="false" >
+  		<id name="id" column="CALCULATOR_ID" type="string">  		
+			<generator class="guid"></generator>			
+       	</id>
+       	<property name="type" column="CALCULATOR_TYPE" type="string" length="50"/>
+        <property name="creationDate" column="CREATION_DATE" type="timestamp"/>
+        <property name="modificationDate" column="MODIFICATION_DATE" type="timestamp" />
+        <property name ="methodName" column = "METHOD_NAME" type="string" length="100"/>
+  	</class>
+
+	<class name="com.wisegoals.entity.calculator.GoalDetails" table="GOAL_DETAILS" lazy="false">
+  		<id name="id" column="ID" type="string">
+			<generator class="guid"></generator>			
+       	</id>
+       	<property name="userID" column="USER_ID" type="string" length="50"/>
+        <property name="calculatorType" column="CALCULATOR_TYPE" type="string" length="50"/>
+        <property name="goalName" column="GOAL_NAME" type="string" length="50"/>
+        <property name="currentAge" column="CURRENT_AGE" type="string" length="10"/>
+        <property name="maturityAge" column="MATURITY_AGE" type="string" length="10"/>
+        <property name="currentMonthlyExp" column="CURRENT_MONTHLY_EXP" type="string" length="255"/>
+        <property name="returnExpectedOnInvestment" column="RETURN_EXPECTED_ON_INVESTMENT" type="string" length="10"/>
+        <property name="inflationRateInExp" column="INFLATION_RATE_IN_EXP" type="string" length="30"/>
+        <property name="lifeExpectancy" column="LIFE_EXPECTANCY" type="string" length="5"/>
+        <property name="postRetSavingsRate" column="POST_RET_SAVINGS_RATE" type="string" length="5"/>
+        <property name="postRetInflationMonthlyExp" column="POST_RET_INFLATION_MONTHLY_EXP" type="string" length="30"/>
+        <property name="existingInvestmentTowardsGoal" column="EXISTING_INVESTMENT_TOWARDS_GOAL" type="string" length="20"/>
+        <property name="expectedReturnOnExistingInvestment" column="EXPECTED_RETURN_ON_EXISTING_INVESTMENT" type="string" length="10"/>        
+        <property name="currentCost" column="CURRENT_COST" type="string" length="20"/>
+        <property name="yearsToVacation" column="YEARS_TO_VACATION" type="string" length="10"/>
+        <property name="costOfVacationInYears" column="COST_OF_VACATION_IN_YEARS" type="string" length="10"/>
+        <property name="inflationRate" column="INFLATION_RATE" type="string" length="10"/>
+        <property name="yearsWantDreamCar" column="YEARS_WANT_DREAM_CAR" type="string" length="10"/>                
+        <property name="creationDate" column="CREATION_DATE" type="timestamp"/>
+        <property name="modificationDate" column="MODIFICATION_DATE" type="timestamp" />
+        <property name="foodExp" column="FOOD_EXP" type="string" length="50"/>
+        <property name="rentExp" column="RENT_EXP" type="string" length="50"/>
+        <property name="travelExp" column="TRAVEL_EXP" type="string" length="50"/>
+        <property name="entertainmentExp" column="ENTERTAINMENT_EXP" type="string" length="50"/>
+        <property name="mallExp" column="MALL_EXP" type="string" length="50"/>
+        <property name="otherExp" column="OTHER_EXP" type="string" length="50"/>
+        <property name="other" column="OTHER" type="string" length="50"/>
+        <property name="foodInflSlider" column="FOOD_INFL_SLIDER" type="string" length="10"/>
+        <property name="rentInflSlider" column="RENT_INFL_SLIDER" type="string" length="10"/>
+        <property name="travelInflSlider" column="TRAVEL_INFL_SLIDER" type="string" length="10"/>
+        <property name="entertainmentInflSlider" column="ENTERTAINMENT_INFL_SLIDER" type="string" length="10"/>
+        <property name="mallInflSlider" column="MALL_INFL_SLIDER" type="string" length="10"/>
+        <property name="otherInflSlider" column="OTHER_INFL_SLIDER" type="string" length="10"/>
+        <property name="currentCostOfEducation" column="CURRENT_COST_OF_EDUCATION" type="string" length="20"/>
+        <property name="inflationInCostOfEducation" column="INFLATION_IN_COST_OF_EDUCATION" type="string" length="20"/>
+        <property name="educationStartAge" column="EDUCATION_START_AGE" type="string" length="5"/>
+  	</class>
+  	
+</hibernate-mapping>
