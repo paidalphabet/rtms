@@ -16,7 +16,7 @@ import com.rtms.dao.BaseDAO;
 import com.rtms.entity.email.EmailTemplate;
 import com.rtms.framework.bo.factory.ApplicationContextFactory;
 import com.rtms.framework.bo.factory.BOFactory;
-import com.rtms.framework.exception.WiseGoalsExeption;
+import com.rtms.framework.exception.RTMSException;
 
 public abstract class AbstractVelocityInitializer {
 
@@ -38,7 +38,7 @@ public abstract class AbstractVelocityInitializer {
 		}		
 	}
 
-	protected Template getTemplate(String templateID) throws WiseGoalsExeption{
+	protected Template getTemplate(String templateID) throws RTMSException{
 		final Template template = new Template();
 		final RuntimeServices runtimeServices = RuntimeSingleton.getRuntimeServices();
 		final BaseDAO baseDao = (BaseDAO) ApplicationContextFactory.getAppcontext().getBean("basedao");

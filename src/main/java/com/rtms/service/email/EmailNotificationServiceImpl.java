@@ -23,7 +23,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.rtms.framework.constants.ApplicationConstants;
-import com.rtms.framework.exception.WiseGoalsExeption;
+import com.rtms.framework.exception.RTMSException;
 
 public class EmailNotificationServiceImpl extends AbstractVelocityInitializer	implements EmailNotificationService, Runnable {
 
@@ -149,7 +149,7 @@ public class EmailNotificationServiceImpl extends AbstractVelocityInitializer	im
 		Template template = null;
 		try {
 			template = super.getTemplate(templateID);
-		} catch (WiseGoalsExeption e) {
+		} catch (RTMSException e) {
 			e.printStackTrace();
 		}
 		if (template != null) {

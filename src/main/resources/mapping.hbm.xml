@@ -2,7 +2,7 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
 <hibernate-mapping>
   	
-  	<class name="com.wisegoals.entity.LabelTxt" table="LABELTXT" lazy="false">
+  	<class name="com.rtms.entity.Label" table="LABEL" lazy="false">
   		<id name="id" column="ID" type="string">
 			<generator class="guid"/>
        	</id>
@@ -13,7 +13,7 @@
         <property name="modificationDate" column="MODIFICATION_DATE" type="timestamp" />
   	</class>
 
-	<class name="com.wisegoals.entity.email.EmailTemplate" table="EMAIL_TEMPLATE" lazy="false">
+	<class name="com.rtms.entity.email.EmailTemplate" table="EMAIL_TEMPLATE" lazy="false">
 		<id name="templateID" column="TEMPLATE_ID" type="int">
 			<generator class="native"/>
 		</id>
@@ -23,7 +23,7 @@
 		<property name="creationDate" column="CREATION_DATE" type="timestamp"/>
 	</class>
 	
-	<class name="com.wisegoals.framework.exception.TrackedException" table="TRACKED_EXCEPTION" lazy="false">
+	<class name="com.rtms.framework.exception.TrackedException" table="TRACKED_EXCEPTION" lazy="false">
 		<id name="exceptionLogID" column="EXCEPTION_LOG_ID" type="long">
 			<generator class="native"/>
 		</id>
@@ -34,7 +34,7 @@
 		<property name="modificationDate" column="MODIFICATION_DATE" type="timestamp" />
 	</class>
 	
-	<class name="com.wisegoals.entity.analytics.HttpRequestLog" table="PAGE_ACCESS_DETAIL" lazy="false">
+	<class name="com.rtms.entity.analytics.HttpRequestLog" table="PAGE_ACCESS_DETAIL" lazy="false">
 		<id name="requestLogID" column="REQUEST_LOG_ID" type="string">
 			<generator class="guid"/>
 		</id>

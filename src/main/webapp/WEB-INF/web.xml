@@ -7,7 +7,7 @@
 	
 	<servlet>
 		<servlet-name>baseurlgenerator</servlet-name>
-		<servlet-class>com.wisegoals.servlet.javascript.BaseURLGenerator</servlet-class>
+		<servlet-class>com.rtms.servlet.javascript.BaseURLGenerator</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>baseurlgenerator</servlet-name>
@@ -16,7 +16,7 @@
 	
 	<servlet>
 		<servlet-name>AppContextLoader</servlet-name>
-		<servlet-class>com.wisegoals.framework.servlet.AppContextLoader</servlet-class>
+		<servlet-class>com.rtms.framework.servlet.AppContextLoader</servlet-class>
 		<load-on-startup>2</load-on-startup>
 	</servlet>
 	
@@ -32,13 +32,13 @@
 	
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
-		<param-value>/WEB-INF/spring-servlet.xml,/WEB-INF/spring-security.xml</param-value>
+		<param-value>/WEB-INF/spring-servlet.xml</param-value>
 	</context-param>
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
 	<welcome-file-list>
-		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>/login</welcome-file>
 	</welcome-file-list>
 	<servlet-mapping>
 		<servlet-name>default</servlet-name>

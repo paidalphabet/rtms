@@ -21,4 +21,6 @@ public interface Redirection {
 	
 	String VIEW_INDEX_UI = "views/index";
 	String VIEW_HOME_CONTAINER = "views/homeContent";
+	
+	String VIEW_LOGIN = "login";
 }

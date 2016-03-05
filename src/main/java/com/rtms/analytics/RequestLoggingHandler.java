@@ -5,7 +5,7 @@ import javax.servlet.http.HttpServletRequest;
 import com.rtms.bo.UserBO;
 
 /**
- * @author sanket
+ * @author sandesh
  *
  */
 public class RequestLoggingHandler extends Thread{

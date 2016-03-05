@@ -9,7 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.rtms.entity.LabelTxt;
+import com.rtms.entity.Label;
 import com.rtms.model.system.BaseBusinessObject;
 
 @Transactional
@@ -84,13 +84,13 @@ public class BaseDAO<T extends BaseBusinessObject> extends HibernateDaoSupport {
 	 * @param locale
 	 * @return List<LabelTxt>
 	 */
-	public List<LabelTxt> initializeApplicationLocale(String locale) {
-		final String hql = "select l from LabelTxt l where l.locale =:locale";
+	public List<Label> initializeApplicationLocale(final String locale) {
+		final String hql = "select l from Label l where l.locale =:locale";
 		final Session session = getHibernateSession();
 		final Query query = getHQLQuery(session, hql, false);
 		query.setCacheable(true);
 		query.setString("locale", locale);
-		final List<LabelTxt> l = query.list();
+		final List<Label> l = query.list();
 		return l;
 	}
 
@@ -101,7 +101,7 @@ public class BaseDAO<T extends BaseBusinessObject> extends HibernateDaoSupport {
 	 * @param objectId Integer
 	 * @return Object
 	 */
-	public T getObjectByID(Class clazz, int objectID){
+	public T getObjectByID(final Class clazz,final int objectID){
 		final Session session = getHibernateSession();
 		try{
 			return (T) session.load(clazz, objectID);
@@ -112,7 +112,7 @@ public class BaseDAO<T extends BaseBusinessObject> extends HibernateDaoSupport {
 		}
 	}
 	
-	public void save(T object, boolean isSessionNew) {
+	public void save(final T object, final boolean isSessionNew) {
 		final Session session = getHibernateTemplate().getSessionFactory().openSession();
 		session.beginTransaction();
 		session.save(object);	
