@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+    
+	<class name="com.rtms.entity.User" table="USER" lazy="false">
+  		<id name="id" column="ID" type="string">
+			<generator class="guid"/>			
+       	</id>
+       	<property name="prefix" column="PREFIX" type="string" length="50"/>
+        <property name="firstName" column="FIRST_NAME" type="string" length="255"/>
+        <property name="middleName" column="MIDDLE_NAME" type="string" length="255"/>
+        <property name="lastName" column="LAST_NAME" type="string" length="255"/>
+        <property name="gender" column="GENDER" type="string" length="10"/>
+        <property name="dob" column="DOB" type="date"/>
+        <property name="photo" column="PHOTO" type="string" length="255"/>
+        <property name="loginID" column ="LOGIN_ID" type="string" length="255"/>
+        <property name="emailID" column ="EMAIL_ID" type="string" length="255"/>
+        <property name="password" column ="PASSWORD" type="string" length="255"/>
+        <property name="securityQuestion" column="SECURITY_QUESTION" type="string" length="255"/>
+        <property name="securityQuestionAnswer" column="SECURITY_QUESTION_ANSWER" type="string" length="255"/>
+        <property name="lastLoginDate" column="LAST_LOGIN_DATE" type="timestamp"/>
+        <property name="status" column="STATUS" type="string" length="255"/>        
+        <property name="creationDate" column="CREATION_DATE" type="timestamp"/>
+        <property name="modificationDate" column="MODIFICATION_DATE" type="timestamp" />
+  	</class>
+  	  	
+</hibernate-mapping>
