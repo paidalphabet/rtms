@@ -6,6 +6,8 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.orm.hibernate3.HibernateTemplate;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Propagation;
@@ -18,6 +20,12 @@ import com.rtms.model.system.BaseBusinessObject;
 public class BaseDAO<T extends BaseBusinessObject> extends HibernateDaoSupport {
 
 	private final static Logger LOGGER = LoggerFactory.getLogger(BaseDAO.class);
+	
+	/**
+	 * hibernate template
+	 */
+	@Autowired(required=true)
+	private HibernateTemplate hibernateTemplate;
 	
 	/**
 	 * Returns the object of the current hibernate session.

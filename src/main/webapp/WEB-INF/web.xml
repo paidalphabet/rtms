@@ -14,12 +14,12 @@
 		<url-pattern>/js/url</url-pattern>
 	</servlet-mapping>
 	
-	<servlet>
+	<!-- <servlet>
 		<servlet-name>AppContextLoader</servlet-name>
 		<servlet-class>com.rtms.framework.servlet.AppContextLoader</servlet-class>
 		<load-on-startup>2</load-on-startup>
 	</servlet>
-	
+	 -->
 	<servlet>
 		<servlet-name>spring</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>

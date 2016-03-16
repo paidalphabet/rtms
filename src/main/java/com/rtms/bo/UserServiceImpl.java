@@ -14,7 +14,7 @@ import com.rtms.framework.session.user.UserSessionObject;
 import com.rtms.service.email.EmailNotificationService;
 import com.rtms.transformer.CommonSystemTransformer;
 
-public class UserServiceImpl implements UserService extends BaseBO {
+public class UserServiceImpl  extends BaseServiceImpl implements UserService  {
 
 	private final static Logger LOGGER = LoggerFactory.getLogger(UserServiceImpl.class);
 	public UserDAO userdao;
@@ -36,7 +36,7 @@ public class UserServiceImpl implements UserService extends BaseBO {
 		this.emailNotificationService = emailNotificationService;
 	}
 
-	private static void buildUserSession(final User user, final HttpServletRequest request) {
+	public void buildUserSession(final User user, final HttpServletRequest request) {
 		final UserSessionObject userSessionObject = new UserSessionObject();
 		if (null != user  && null != request) {
 			userSessionObject.setDisplayName(user.getEmailID());
@@ -49,7 +49,7 @@ public class UserServiceImpl implements UserService extends BaseBO {
 		}
 	}
 
-	private static void destroyUserSession(final HttpServletRequest request) {
+	public void destroyUserSession(final HttpServletRequest request) {
 		if (null != request) {
 			HttpSessionAttributeFactory.removeAttribute(SessionConstants.USER_ID, request);
 			HttpSessionAttributeFactory.removeAttribute(SessionConstants.USER_SESSION_OBJECT, request);
@@ -65,5 +65,4 @@ public class UserServiceImpl implements UserService extends BaseBO {
 			final HttpRequestLog requestLog = CommonSystemTransformer.convertToHttpRequestLog(request,requestLogType);
 			userdao.save(requestLog);		
 		}
-
 }
